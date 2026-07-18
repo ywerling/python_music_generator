@@ -1,17 +1,27 @@
 :root {
-  --ink: #17211b;
-  --muted: #6d776f;
-  --paper: #f5f2ea;
-  --surface: #fffdf8;
-  --accent: #e05f3c;
-  --accent-dark: #ba4326;
-  --sage: #b9c9b5;
+  --deep-teal: #083c44;
+  --teal: #0f6f73;
+  --teal-light: #73b8b5;
+  --cerulean: #168ac0;
+  --cerulean-light: #9edaf0;
+  --coral: #f26b5e;
+  --coral-dark: #c84840;
+  --coral-soft: #ffd0c9;
+  --ink: #102e33;
+  --muted: #567177;
+  --paper: #f4faf9;
+  --surface: #fffdfc;
+  --accent: var(--coral);
+  --accent-dark: var(--coral-dark);
 }
 
 body {
   min-height: 100vh;
   color: var(--ink);
-  background: radial-gradient(circle at 85% 12%, rgba(185, 201, 181, .42), transparent 28rem), var(--paper);
+  background:
+    radial-gradient(circle at 85% 12%, rgba(158, 218, 240, .42), transparent 28rem),
+    radial-gradient(circle at 8% 88%, rgba(115, 184, 181, .18), transparent 24rem),
+    var(--paper);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
@@ -41,9 +51,24 @@ body {
 .btn-primary {
   --bs-btn-bg: var(--accent);
   --bs-btn-border-color: var(--accent);
+  --bs-btn-color: var(--ink);
   --bs-btn-hover-bg: var(--accent-dark);
   --bs-btn-hover-border-color: var(--accent-dark);
-  box-shadow: 0 .75rem 2rem rgba(224, 95, 60, .22);
+  --bs-btn-hover-color: #fff;
+  box-shadow: 0 .75rem 2rem rgba(242, 107, 94, .25);
+}
+
+.btn-outline-dark {
+  --bs-btn-color: var(--teal);
+  --bs-btn-border-color: var(--teal);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--teal);
+  --bs-btn-hover-border-color: var(--teal);
+}
+
+:focus-visible {
+  outline: 3px solid var(--cerulean);
+  outline-offset: 3px;
 }
 
 .sound-orbit {
@@ -60,7 +85,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.orbit { border: 1px solid rgba(23, 33, 27, .18); }
+.orbit { border: 1px solid rgba(15, 111, 115, .24); }
 .orbit-one { width: 100%; height: 100%; }
 .orbit-two { width: 72%; height: 72%; }
 .orbit-three { width: 45%; height: 45%; }
@@ -72,14 +97,14 @@ body {
   color: var(--surface);
   background: var(--accent);
   font-size: 2.5rem;
-  box-shadow: 0 1rem 3rem rgba(224, 95, 60, .28);
+  box-shadow: 0 1rem 3rem rgba(242, 107, 94, .3);
 }
 
 .feature-card {
   padding: 2rem;
-  border: 1px solid rgba(23, 33, 27, .1);
+  border: 1px solid rgba(15, 111, 115, .14);
   border-radius: 1.25rem;
-  background: rgba(255, 253, 248, .6);
+  background: rgba(255, 253, 252, .7);
 }
 
 .feature-number { color: var(--accent); font-family: ui-monospace, monospace; font-size: .8rem; }
@@ -88,10 +113,10 @@ body {
 .back-link:hover { color: var(--ink); }
 .generator-card {
   padding: clamp(2rem, 6vw, 4.5rem);
-  border: 1px solid rgba(23, 33, 27, .1);
+  border: 1px solid rgba(15, 111, 115, .14);
   border-radius: 2rem;
-  background: rgba(255, 253, 248, .82);
-  box-shadow: 0 2rem 5rem rgba(37, 48, 40, .08);
+  background: rgba(255, 253, 252, .86);
+  box-shadow: 0 2rem 5rem rgba(8, 60, 68, .1);
   backdrop-filter: blur(12px);
 }
 
@@ -108,7 +133,7 @@ body {
   width: .35rem;
   height: var(--height);
   border-radius: 1rem;
-  background: var(--sage);
+  background: var(--teal-light);
   transform-origin: center;
 }
 
@@ -142,10 +167,103 @@ body {
   transition: transform .2s ease, background .2s ease;
 }
 
-.play-button:hover { background: #29372e; transform: translateY(-2px); }
-.play-button.is-playing { background: var(--accent); }
+.play-button:hover { background: var(--teal); transform: translateY(-2px); }
+.play-button.is-playing { color: var(--ink); background: var(--accent); }
 .play-icon { font-size: .8rem; }
 .volume-control { max-width: 26rem; }
 .form-range::-webkit-slider-thumb { background: var(--accent); }
 .form-range::-moz-range-thumb { background: var(--accent); }
 .status-text { color: var(--muted); font-size: .875rem; }
+
+.rain-page {
+  color: #effbff;
+  background:
+    radial-gradient(circle at 72% 18%, rgba(22, 138, 192, .22), transparent 18rem),
+    linear-gradient(160deg, var(--deep-teal), #061f2b 70%);
+}
+
+.rain-page .rain-back-link,
+.rain-page .rain-copy,
+.rain-status { color: var(--cerulean-light); }
+.rain-page .rain-back-link:hover { color: #fff; }
+.rain-card {
+  border-color: rgba(158, 218, 240, .18);
+  background: rgba(6, 36, 47, .76);
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, .32);
+}
+
+.rain-eyebrow { color: var(--coral-soft); }
+.rain-window {
+  position: relative;
+  width: min(100%, 30rem);
+  height: 12rem;
+  overflow: hidden;
+  border: 1px solid rgba(158, 218, 240, .2);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(to bottom, transparent 60%, rgba(22, 138, 192, .16)),
+    #062a38;
+}
+
+.moon {
+  position: absolute;
+  top: 1.4rem;
+  right: 2.2rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: var(--coral-soft);
+  box-shadow: 0 0 2.5rem rgba(242, 107, 94, .32);
+}
+
+.moon::after {
+  position: absolute;
+  top: -.35rem;
+  left: -.45rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: #062a38;
+  content: "";
+}
+
+.rain-window i {
+  position: absolute;
+  top: -2rem;
+  left: var(--left);
+  width: 1px;
+  height: var(--length);
+  opacity: 0;
+  background: linear-gradient(transparent, rgba(158, 218, 240, .9));
+  transform: rotate(10deg);
+}
+
+.rain-window.is-raining i {
+  animation: rain-fall var(--duration) linear infinite;
+  animation-delay: var(--delay);
+}
+
+.rain-horizon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2.5rem;
+  background: linear-gradient(170deg, transparent 35%, #083c44 36%);
+}
+
+@keyframes rain-fall {
+  0% { opacity: 0; transform: translate3d(0, -1rem, 0) rotate(10deg); }
+  15% { opacity: .8; }
+  100% { opacity: 0; transform: translate3d(-1.5rem, 15rem, 0) rotate(10deg); }
+}
+
+.rain-button { color: var(--deep-teal); background: var(--cerulean-light); }
+.rain-button:hover { color: #fff; background: var(--cerulean); }
+.rain-button.is-playing { color: var(--ink); background: var(--coral); }
+.rain-range::-webkit-slider-thumb { background: var(--cerulean); }
+.rain-range::-moz-range-thumb { background: var(--cerulean); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rain-window.is-raining i { animation: none; opacity: .45; }
+}

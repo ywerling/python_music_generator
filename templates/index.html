@@ -13,9 +13,14 @@
             Simple, continuous soundscapes for focus, rest, and everything in between.
             No downloads. No distractions.
           </p>
-          <a class="btn btn-primary btn-lg rounded-pill px-4 py-3" href="{{ url_for('white_noise') }}">
-            Open white noise <span class="ms-2" aria-hidden="true">→</span>
-          </a>
+          <div class="d-flex flex-wrap gap-3">
+            <a class="btn btn-primary btn-lg rounded-pill px-4 py-3" href="{{ url_for('white_noise') }}">
+              Open white noise <span class="ms-2" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-outline-dark btn-lg rounded-pill px-4 py-3" href="{{ url_for('night_rain') }}">
+              Hear night rain <span class="ms-2" aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
         <div class="col-lg-5" aria-hidden="true">
           <div class="sound-orbit">

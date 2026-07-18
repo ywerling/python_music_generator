@@ -13,6 +13,8 @@ class AppRoutesTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Open white noise", response.data)
         self.assertIn(b'href="/white-noise"', response.data)
+        self.assertIn(b"Hear night rain", response.data)
+        self.assertIn(b'href="/night-rain"', response.data)
 
     def test_white_noise_page_contains_controls(self):
         response = self.client.get("/white-noise")
@@ -20,6 +22,13 @@ class AppRoutesTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'id="toggleNoise"', response.data)
         self.assertIn(b'id="volume"', response.data)
+
+    def test_night_rain_page_contains_controls(self):
+        response = self.client.get("/night-rain")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'id="toggleRain"', response.data)
+        self.assertIn(b'id="rainVolume"', response.data)
 
 
 if __name__ == "__main__":

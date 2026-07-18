@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Night Rain · Sound Foundry{% endblock %}
+
+{% block content %}
+  <section class="generator-section rain-page">
+    <div class="container">
+      <a class="back-link rain-back-link" href="{{ url_for('index') }}">← Back home</a>
+      <div class="row justify-content-center mt-4">
+        <div class="col-lg-8 col-xl-7">
+          <div class="generator-card rain-card text-center">
+            <p class="eyebrow rain-eyebrow mb-3">Weather generator</p>
+            <h1 class="display-4 fw-semibold mb-3">Night rain</h1>
+            <p class="rain-copy mb-5">
+              A soft curtain of rainfall with scattered drops tapping in the dark.
+            </p>
+
+            <div class="rain-window mx-auto mb-5" id="rainWindow" aria-hidden="true">
+              <span class="moon"></span>
+              {% for drop in range(42) %}
+                <i style="--left: {{ (drop * 37) % 100 }}%; --delay: -{{ (drop * 13) % 31 / 10 }}s; --length: {{ 12 + (drop % 9) }}px; --duration: {{ 650 + (drop % 14) * 30 }}ms"></i>
+              {% endfor %}
+              <span class="rain-horizon"></span>
+            </div>
+
+            <button id="toggleRain" class="play-button rain-button" type="button" aria-pressed="false">
+              <span class="play-icon" aria-hidden="true">▶</span>
+              <span class="button-label">Start listening</span>
+            </button>
+
+            <div class="volume-control mx-auto mt-5">
+              <div class="d-flex justify-content-between mb-2">
+                <label for="rainVolume" class="form-label mb-0">Volume</label>
+                <output id="rainVolumeValue" for="rainVolume">35%</output>
+              </div>
+              <input class="form-range rain-range" type="range" id="rainVolume" min="0" max="100" value="35" aria-label="Rain volume">
+            </div>
+
+            <p id="rainStatus" class="rain-status mt-4 mb-0" role="status" aria-live="polite">The night is still</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/night-rain.js') }}"></script>
+{% endblock %}

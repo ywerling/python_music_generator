@@ -14,5 +14,10 @@ def white_noise():
     return render_template("white_noise.html")
 
 
+@app.get("/night-rain")
+def night_rain():
+    return render_template("night_rain.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
