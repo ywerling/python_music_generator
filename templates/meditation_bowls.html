@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Meditation Bowls · Sound Foundry{% endblock %}
+
+{% block content %}
+  <section class="generator-section meditation-page">
+    <div class="container">
+      <a class="back-link" href="{{ url_for('index') }}">← Back home</a>
+      <div class="row justify-content-center mt-4">
+        <div class="col-lg-8 col-xl-7">
+          <div class="generator-card meditation-card text-center">
+            <p class="eyebrow mb-3">Meditation soundscape</p>
+            <h1 class="display-4 fw-semibold mb-3">Meditation bowls</h1>
+            <p class="text-secondary mb-5">
+              A spacious low drone and gently recurring bowl tones for quiet reflection.
+            </p>
+
+            <div class="bowl-visual mx-auto mb-5" id="bowlVisual" aria-hidden="true">
+              <span class="bowl-ring ring-outer"></span>
+              <span class="bowl-ring ring-middle"></span>
+              <span class="bowl-ring ring-inner"></span>
+              <span class="bowl-center"></span>
+            </div>
+
+            <button id="toggleMeditation" class="play-button meditation-button" type="button" aria-pressed="false">
+              <span class="play-icon" aria-hidden="true">▶</span>
+              <span class="button-label">Begin soundscape</span>
+            </button>
+
+            <div class="volume-control mx-auto mt-5">
+              <div class="d-flex justify-content-between mb-2">
+                <label for="meditationVolume" class="form-label mb-0">Volume</label>
+                <output id="meditationVolumeValue" for="meditationVolume">30%</output>
+              </div>
+              <input class="form-range" type="range" id="meditationVolume" min="0" max="100" value="30" aria-label="Meditation soundscape volume">
+            </div>
+
+            <p id="meditationStatus" class="status-text mt-4 mb-2" role="status" aria-live="polite">Ready for a quiet moment</p>
+            <p class="small text-secondary mb-0">Inspired by resonant bowls and meditative drones; no traditional chant recordings are used.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/meditation-bowls.js') }}"></script>
+{% endblock %}

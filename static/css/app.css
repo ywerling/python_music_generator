@@ -264,6 +264,77 @@ body {
 .rain-range::-webkit-slider-thumb { background: var(--cerulean); }
 .rain-range::-moz-range-thumb { background: var(--cerulean); }
 
+.meditation-page {
+  background:
+    radial-gradient(circle at 50% 28%, rgba(242, 107, 94, .14), transparent 20rem),
+    radial-gradient(circle at 15% 75%, rgba(22, 138, 192, .16), transparent 24rem);
+}
+
+.meditation-card {
+  border-color: rgba(15, 111, 115, .18);
+  background: rgba(255, 253, 252, .9);
+}
+
+.bowl-visual {
+  position: relative;
+  width: min(18rem, 70vw);
+  aspect-ratio: 1;
+}
+
+.bowl-ring,
+.bowl-center {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bowl-ring {
+  border: 1px solid rgba(15, 111, 115, .3);
+  transition: opacity .5s ease, transform .8s ease;
+}
+
+.ring-outer { width: 100%; height: 100%; opacity: .25; }
+.ring-middle { width: 70%; height: 70%; opacity: .45; }
+.ring-inner { width: 42%; height: 42%; opacity: .7; }
+.bowl-center {
+  width: 20%;
+  height: 20%;
+  background: radial-gradient(circle at 35% 30%, var(--coral-soft), var(--coral));
+  box-shadow: 0 0 2.5rem rgba(242, 107, 94, .28);
+}
+
+.bowl-visual.is-playing .bowl-center {
+  animation: bowl-breathe 4s ease-in-out infinite alternate;
+}
+
+.bowl-visual.is-struck .ring-outer {
+  animation: bowl-ripple 2.8s ease-out;
+}
+
+.bowl-visual.is-struck .ring-middle {
+  animation: bowl-ripple 2.8s .12s ease-out;
+}
+
+.bowl-visual.is-struck .ring-inner {
+  animation: bowl-ripple 2.8s .24s ease-out;
+}
+
+@keyframes bowl-breathe {
+  to { transform: translate(-50%, -50%) scale(1.12); box-shadow: 0 0 4rem rgba(242, 107, 94, .42); }
+}
+
+@keyframes bowl-ripple {
+  0% { opacity: .75; transform: translate(-50%, -50%) scale(.78); }
+  100% { opacity: .08; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+.meditation-button { background: var(--deep-teal); }
+.meditation-button:hover { background: var(--teal); }
+.meditation-button.is-playing { color: var(--ink); background: var(--coral); }
+
 @media (prefers-reduced-motion: reduce) {
   .rain-window.is-raining i { animation: none; opacity: .45; }
+  .bowl-visual.is-playing .bowl-center,
+  .bowl-visual.is-struck .bowl-ring { animation: none; }
 }
