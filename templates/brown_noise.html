@@ -14,7 +14,7 @@
             <p class="text-secondary mb-5">
               A mixed wash with higher intensity at lower frequencies to soften distractions and fill the room.
             </p>
-            <div class="visualizer mx-auto mb-5" id="visualizer" aria-hidden="true">
+            <div class="visualizer visualizer-brown mx-auto mb-5" id="visualizer" aria-hidden="true">
               {% for bar in range(32) %}<span style="--bar: {{ bar }}; --height: {{ 12 + (bar % 8) * 5 }}%"></span>{% endfor %}
             </div>
             <button id="toggleNoise" class="play-button" type="button" aria-pressed="false">

@@ -14,7 +14,7 @@
             <p class="text-secondary mb-5">
               Black noise usually means near-silence with occasional random impulses:
             </p>
-            <div class="visualizer mx-auto mb-5" id="visualizer" aria-hidden="true">
+            <div class="visualizer visualizer-black mx-auto mb-5" id="visualizer" aria-hidden="true">
               {% for bar in range(32) %}<span style="--bar: {{ bar }}; --height: {{ 12 + (bar % 8) * 5 }}%"></span>{% endfor %}
             </div>
             <button id="toggleNoise" class="play-button" type="button" aria-pressed="false">
@@ -26,7 +26,7 @@
                 <label for="volume" class="form-label mb-0">Volume</label>
                 <output id="volumeValue" for="volume">35%</output>
               </div>
-              <input class="form-range" type="range" id="volume" min="0" max="100" value="35" aria-label="Pink noise volume">
+              <input class="form-range" type="range" id="volume" min="0" max="100" value="35" aria-label="Black noise volume">
             </div>
             <p id="audioStatus" class="status-text mt-4 mb-0" role="status" aria-live="polite">Ready when you are</p>
           </div>
