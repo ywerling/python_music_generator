@@ -19,10 +19,14 @@
     const samples = buffer.getChannelData(0);
 
     for (let index = 0; index < frameCount; index += 1) {
-      samples[index] = 0;
-      if (Math.random() < 0.001) {
+
+      if (Math.random() < 0.5) {  // should be  < 0.001 changed to try to hear more sound
         samples[index] = Math.random() * 2 - 1;
       }
+      else {
+            samples[index] = 0;
+      }
+
 
     }
 

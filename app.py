@@ -50,6 +50,10 @@ def meditation_bowls():
 def night_rain():
     return render_template("night_rain.html")
 
+@app.get("/binaural-beats")
+def binaural_beats():
+    return render_template("binaural_beats.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
