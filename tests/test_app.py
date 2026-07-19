@@ -13,6 +13,10 @@ class AppRoutesTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Open white noise", response.data)
         self.assertIn(b'href="/white-noise"', response.data)
+        self.assertIn(b"Open brown noise", response.data)
+        self.assertIn(b'href="/brown-noise"', response.data)
+        self.assertIn(b"Open pink noise", response.data)
+        self.assertIn(b'href="/pink-noise"', response.data)
         self.assertIn(b"Hear night rain", response.data)
         self.assertIn(b'href="/night-rain"', response.data)
         self.assertIn(b"Meditation bowls", response.data)
@@ -20,6 +24,20 @@ class AppRoutesTestCase(unittest.TestCase):
 
     def test_white_noise_page_contains_controls(self):
         response = self.client.get("/white-noise")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'id="toggleNoise"', response.data)
+        self.assertIn(b'id="volume"', response.data)
+
+    def test_brown_noise_page_contains_controls(self):
+        response = self.client.get("/brown-noise")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'id="toggleNoise"', response.data)
+        self.assertIn(b'id="volume"', response.data)
+
+    def test_pink_noise_page_contains_controls(self):
+        response = self.client.get("/pink-noise")
 
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'id="toggleNoise"', response.data)

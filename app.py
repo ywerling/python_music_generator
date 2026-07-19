@@ -14,6 +14,10 @@ def white_noise():
     return render_template("white_noise.html")
 
 
+@app.get("/pink-noise")
+def pink_noise():
+    return render_template("pink_noise.html")
+
 @app.get("/brown-noise")
 def brown_noise():
     return render_template("brown_noise.html")
